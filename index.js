@@ -1,5 +1,8 @@
 const { scrapePruduct } = require("./scraping");
 
+// För att scrapa scrapeProduct(URL,Kategori,Filnamn, ID-nummer(100-tal))
+// $ npm start
+
 //Vårblommor
 
 scrapePruduct(

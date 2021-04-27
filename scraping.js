@@ -29,7 +29,7 @@ exports.scrapePruduct = async (url, kategori, filname, ID) => {
   await browser.close();
 
   const csvWriter = createCsvWriter({
-    path: filname,
+    path: `data/${filname}`,
     header: [
       { id: "ID", title: "ID" },
       { id: "Typ", title: "Typ" },
@@ -168,16 +168,7 @@ exports.scrapePruduct = async (url, kategori, filname, ID) => {
     };
   });
 
-  csvWriter
-    .writeRecords(records) // returns a promise
-    .then(() => {
-      console.log(`Scraping för ${kategori} klar!`);
-    });
+  csvWriter.writeRecords(records).then(() => {
+    console.log(`Scraping för ${kategori} klar!`);
+  });
 };
-
-// const main = async () => {
-//   const data = scrapePruduct("https://www.euroflorist.se/begravning-ct208");
-//   console.log(data);
-// };
-
-// main();
